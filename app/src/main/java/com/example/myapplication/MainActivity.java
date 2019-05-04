@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         JsonArrayRequest jArr = new JsonArrayRequest(url_select, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                Log.d(TAG, response.toString());
+                Log.d(TAG, "ini respon dari json ---> "+response.toString());
 
                 // Parsing json
                 for (int i = 0; i < response.length(); i++) {
@@ -213,9 +213,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                         Data item = new Data();
 
-                        item.setId(obj.getString(TAG_ID));
-                        item.setNama(obj.getString(TAG_NAMA));
-                        item.setTelp(obj.getString(TAG_TELP));
+                        item.setId(obj.getString("id"));
+                        item.setNama(obj.getString("nama"));
+                        item.setTelp(obj.getString("telp"));
 
                         // menambah item ke array
                         itemList.add(item);
